@@ -1,6 +1,6 @@
 /*
 Task
-Basic Algorithm Scripting: Convert Celsius to Fahrenheit
+Algorithm Scripting: Convert Celsius to Fahrenheit
 */
 
 // Variable declaration
