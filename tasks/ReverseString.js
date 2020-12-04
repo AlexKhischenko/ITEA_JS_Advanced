@@ -21,7 +21,7 @@ Algorithm Scripting: Reverse a String
 //   return reversedString;
 // }
 
-// result = reverseString("Hello World");
+// result = reverseString("JavaScript");
 // console.log(result);
 
 
@@ -36,7 +36,7 @@ Algorithm Scripting: Reverse a String
 //   return str;
 // }
 
-// result = reverseString("Hello World");
+// result = reverseString("JavaScript");
 // console.log(result);
 
 
@@ -57,5 +57,5 @@ function reverseString(str) {
   return str;
 }
 
-result = reverseString("Hello");
+result = reverseString("JavaScript");
 console.log(result);
