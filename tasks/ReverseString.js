@@ -5,30 +5,23 @@ Algorithm Scripting: Reverse a String
 
 /* ---------- Imperative method ---------- */
 
-// // Variable declaration
-// var result;
-
-// // Function declaration
-// function reverseString(str) {
-//   var strLength = str.length,
-//       reversedString = '',
-//       i = strLength - 1;
+// Function declaration
+function reverseString(str) {
+  var strLength = str.length,
+      reversedString = '',
+      i = strLength - 1;
   
-//     // String iteration and creation a new one
-//     for (i; i >= 0; i -= 1) {
-//       reversedString += str[i];
-//     }
-//   return reversedString;
-// }
+    // String iteration and creation a new one
+    for (i; i >= 0; i -= 1) {
+      reversedString += str[i];
+    }
+  return reversedString;
+}
 
-// result = reverseString("JavaScript");
-// console.log(result);
+console.log( reverseString("JavaScript") );
 
 
 /* ---------- Declarative method ---------- */
-
-// // Variable declaration
-// var result;
 
 // // Function declaration
 // function reverseString(str) {
@@ -36,26 +29,21 @@ Algorithm Scripting: Reverse a String
 //   return str;
 // }
 
-// result = reverseString("JavaScript");
-// console.log(result);
+// console.log( reverseString("JavaScript") );
 
 
 /* ---------- Additional solution ---------- */
 
-// Variable declaration
-var result;
-
-// Function declaration
-function reverseString(str) {
-  var strLength = str.length,
-      i = strLength - 1;
+// // Function declaration
+// function reverseString(str) {
+//   var strLength = str.length,
+//       i = strLength - 1;
   
-  for (i; i >= 0; i -= 1) {
-    str += str[i];
-  }
-  str = str.substring(strLength);
-  return str;
-}
+//   for (i; i >= 0; i -= 1) {
+//     str += str[i];
+//   }
+//   str = str.substring(strLength);
+//   return str;
+// }
 
-result = reverseString("JavaScript");
-console.log(result);
+// console.log( reverseString("JavaScript") );
