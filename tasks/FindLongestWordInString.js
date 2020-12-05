@@ -5,32 +5,6 @@ Algorithm Scripting: Find the Longest Word in a String
 
 /* ---------- Imperative method ---------- */
 
-// Function declaration
-function findLongestWordLength(str) {
-  var numberOfLetters = 0,
-      longestWord = [],
-      arrayOfWords = [];
-  
-  arrayOfWords = str.split(' '); /* Transform string to array */
-  arrayOfWords.forEach(function (item) {
-    if (item.length > numberOfLetters) {
-      longestWord = item;
-      numberOfLetters = item.length;
-    }
-  });
-
-  console.log(`The longest word is ${longestWord.toUpperCase()}, that includes ${numberOfLetters} letters`);
-}
-findLongestWordLength("What if we try a super-long word such as otorhinolaryngology");
-findLongestWordLength("The quick brown fox jumped over the lazy dog");
-findLongestWordLength("May the force be with you");
-findLongestWordLength("Google do a barrel roll");
-findLongestWordLength("What is the average airspeed velocity of an unladen swallow");
-
-
-
-/* ---------- Declarative method ---------- */
-
 // // Main function declaration
 // function findLongestWordLength(str) {
 //   var counter = 0,
@@ -64,3 +38,28 @@ findLongestWordLength("What is the average airspeed velocity of an unladen swall
 // findLongestWordLength("May the force be with you");
 // findLongestWordLength("Google do a barrel roll");
 // findLongestWordLength("What is the average airspeed velocity of an unladen swallow");
+
+
+/* ---------- Declarative method ---------- */
+
+// Function declaration
+function findLongestWordLength(str) {
+  var numberOfLetters = 0,
+      longestWord = [],
+      arrayOfWords = [];
+  
+  arrayOfWords = str.split(' '); /* Transform string to array */
+  arrayOfWords.forEach(function (item) {
+    if (item.length > numberOfLetters) {
+      longestWord = item;
+      numberOfLetters = item.length;
+    }
+  });
+
+  console.log(`The longest word is ${longestWord.toUpperCase()}, that includes ${numberOfLetters} letters`);
+}
+findLongestWordLength("What if we try a super-long word such as otorhinolaryngology");
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
+findLongestWordLength("May the force be with you");
+findLongestWordLength("Google do a barrel roll");
+findLongestWordLength("What is the average airspeed velocity of an unladen swallow");
