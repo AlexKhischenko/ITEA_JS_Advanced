@@ -5,27 +5,21 @@ Algorithm Scripting: Factorialize a Number
 
 /* ---------- Imperative method ---------- */
 
-// Variable declaration
-var result;
-
 // Function declaration
 function factorialize(num) {
   if (num < 0) {
     return `error`;
-  } else if (num === 0 || num === 1) {
+  }
+  if (num === 0 || num === 1) {
     return 1;
   } else {
     return num * factorialize(num - 1);
   }
 }
 
-result = factorialize(10);
-console.log(result);
+console.log(factorialize(5));
 
 /* ---------- Declarative method ---------- */
-
-// // Variable declaration
-// var result;
 
 // // Function declaration
 // function factorialize(num) {
@@ -33,7 +27,8 @@ console.log(result);
 //       i = 1;
 //   if (num < 0) {
 //     return `error`;
-//   } else if (num === 0 || num === 1) {
+//   } 
+//   if (num === 0 || num === 1) {
 //     return 1;
 //   } else {
 //     for (i; i <= num; i += 1) {
@@ -43,5 +38,4 @@ console.log(result);
 //   }
 // }
 
-// result = factorialize(10);
-// console.log(result);
+// console.log(factorialize(5));
