@@ -9,21 +9,17 @@ Algorithm Scripting: Find the Longest Word in a String
 function findLongestWordLength(str) {
   var numberOfLetters = 0,
       longestWord = [],
-      arrayOfWords = [],
-      arraySize = 0,
-      i = 0,
-      result;
+      arrayOfWords = [];
   
   arrayOfWords = str.split(' '); /* Transform string to array */
-  arraySize = arrayOfWords.length;
-  for (i; i < arraySize; i += 1) {
-    if (arrayOfWords[i].length > numberOfLetters) {
-      longestWord = arrayOfWords[i];
-      numberOfLetters = arrayOfWords[i].length;
+  arrayOfWords.forEach(function (item) {
+    if (item.length > numberOfLetters) {
+      longestWord = item;
+      numberOfLetters = item.length;
     }
-  }
-  result = `The longest word is ${longestWord.toUpperCase()}, that includes ${numberOfLetters} letters`;
-  console.log(result);
+  });
+
+  console.log(`The longest word is ${longestWord.toUpperCase()}, that includes ${numberOfLetters} letters`);
 }
 findLongestWordLength("What if we try a super-long word such as otorhinolaryngology");
 findLongestWordLength("The quick brown fox jumped over the lazy dog");
@@ -37,12 +33,11 @@ findLongestWordLength("What is the average airspeed velocity of an unladen swall
 
 // // Main function declaration
 // function findLongestWordLength(str) {
-//   // Variables declaration
 //   var counter = 0,
 //       numberOfLetters = 0,
 //       longestWord = '',
-//       currentWord = '',
-//       result;
+//       currentWord = '';
+
 //   // CheckCounter function
 //   function checkCounter(count, num, word) {
 //     if (count > num) {
@@ -62,8 +57,7 @@ findLongestWordLength("What is the average airspeed velocity of an unladen swall
 //     }
 //   }
 //   checkCounter(counter, numberOfLetters, currentWord);
-//   result = `The longest word is ${longestWord.toUpperCase()}, that includes ${numberOfLetters} letters`;
-//   console.log(result);
+//   console.log(`The longest word is ${longestWord.toUpperCase()}, that includes ${numberOfLetters} letters`);
 // }
 // findLongestWordLength("What if we try a super-long word such as otorhinolaryngology");
 // findLongestWordLength("The quick brown fox jumped over the lazy dog");
