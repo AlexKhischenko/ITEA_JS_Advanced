@@ -4,24 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <section class="weather">
     <div class="container">
-      <div class="weather-current-location"></div>
-      <ul class="weather-current-location-list">
-        <li class="weather-item current-temperature">--</li>
-        <li class="weather-item feels-like">--</li>
-        <li class="weather-item pressure">--</li>
-        <li class="weather-item humidity">--</li>
-        <li class="weather-item wind-speed">--</li>
-        <li class="weather-item clouds">--</li>
-        <li class="weather-item visibility">--</li>
-      </ul>
-      <button class="get-weather-btn btn-one">Get weather</button>
-      <button class="get-weather-btn btn-two">Get weather1</button>
-      <input type="text" size="40" class="weather-city-name" placeholder="Type city name">
+      <div class="weather-current-location">
+        <div class="weather-current-city">current city</div>
+        <div class="weather-dividing-line"></div>
+        <ul class="weather-current-location-list">
+          <li class="weather-item current-temperature">--</li>
+          <li class="weather-item feels-like">--</li>
+          <li class="weather-item pressure">--</li>
+          <li class="weather-item humidity">--</li>
+          <li class="weather-item wind-speed">--</li>
+          <li class="weather-item clouds">--</li>
+          <li class="weather-item visibility">--</li>
+        </ul>
+        <button class="get-weather-btn btn-one">GET</button>
+      </div>
+      <!-- <button class="get-weather-btn btn-two">Get weather1</button>
+      <input type="text" size="40" class="weather-city-name" placeholder="Type city name"> -->
     </div>
   </section>
   <script src="./js/script.js"></script>

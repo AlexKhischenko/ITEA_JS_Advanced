@@ -9,7 +9,7 @@
 */
 
 /* Getting all necessary DOM elements */
-var weatherCurrentLocation = document.querySelector('.weather-current-location'),
+var weatherCurrentLocation = document.querySelector('.weather-current-city'),
     currentTemperature = document.querySelector('.current-temperature'),
     feelsLike = document.querySelector('.feels-like'),
     pressure = document.querySelector('.pressure'),
@@ -30,7 +30,6 @@ function getCurrentLocationCoordinates() {
       var currentLatitude = position.coords.latitude,
           currentLongitude = position.coords.longitude;
       getWeatherData(currentLatitude, currentLongitude);
-      getUserLocation();
     });
   } else { /* ask to use another browser */
     alert('Could you try to use another browser because current one does not support a navigation!');
@@ -51,7 +50,6 @@ function getWeatherData(latitude, longitude) {
   } else {
     api = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameValue}&appid=66d7c3fb840d30a551d86ce85c5f9832&units=metric`;
   }
-
   fetch(api)
     .then(function(response) {
       return response.json();
@@ -86,6 +84,8 @@ function displayUserLocation(recievedLocationData) {
   weatherCurrentLocation.innerText = `${recievedLocationData.city}, ${recievedLocationData.country}`;
 }
 
+
+getUserLocation();
 
 /* Add event listener for the first part (current location) */
 weatherBtn.addEventListener('click', getCurrentLocationCoordinates);
