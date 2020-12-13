@@ -25,3 +25,8 @@
   width: 120px;
   height: 30px;
 }
+
+.weather-city-name {
+  padding: 5px;
+  height: 30px;
+}
