@@ -6,6 +6,8 @@
   <title>Weather</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/all.css">
+  <link rel="stylesheet" href="./css/modal.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -14,21 +16,75 @@
       <div class="weather-current-location">
         <div class="weather-current-city">current city</div>
         <div class="weather-dividing-line"></div>
-        <ul class="weather-current-location-list">
-          <li class="weather-item current-temperature">--</li>
-          <li class="weather-item feels-like">--</li>
-          <li class="weather-item pressure">--</li>
-          <li class="weather-item humidity">--</li>
-          <li class="weather-item wind-speed">--</li>
-          <li class="weather-item clouds">--</li>
-          <li class="weather-item visibility">--</li>
-        </ul>
-        <button class="get-weather-btn btn-one">GET</button>
+
+        <div class="weather-main-data">
+          <div class="wrapper">
+            <div class="wrapper-inner">
+              <div class="weather-icon">
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+              <div class="weather-temp current-temperature">--</div>
+              <div class="weather-sign">
+                <span><sup>0</sup>C</span>
+              </div>
+            </div>
+            <div class="weather-description">--</div>
+          </div>
+
+          <div class="wrapper">
+            <div class="weather-data-container">
+              <span class="weather-data-text">Feels like</span>
+              <span class="weather-data feels-like">--</span>
+              <span class="weather-data-sign"><sup>0</sup>C</span>
+            </div>
+            <div class="weather-data-container">
+              <span class="weather-data-text">Humidity</span>
+              <span class="weather-data humidity">--</span>
+              <span class="weather-data-sign">%</span>
+            </div>
+            <div class="weather-data-container">
+              <span class="weather-data-text">Pressure</span>
+              <span class="weather-data pressure">--</span>
+              <span class="weather-data-sign">mm Hg</span>
+            </div>
+            <div class="weather-data-container">
+              <span class="weather-data-text">Wind speed</span>
+              <span class="weather-data wind-speed">--</span>
+              <span class="weather-data-sign">mps</span>
+            </div>
+            <div class="weather-data-container">
+              <span class="weather-data-text">Visibility</span>
+              <span class="weather-data visibility">--</span>
+              <span class="weather-data-sign">m</span>
+            </div>
+            <div class="weather-data-container">
+              <span class="weather-data-text">Clouds</span>
+              <span class="weather-data clouds">--</span>
+              <span class="weather-data-sign">%</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="get-weather-btn btn-one">LOCAL FORECAST</button>
+        <button class="get-weather-btn btn-two">CITY FORECAST</button>
+        <input type="text" size="40" class="weather-city-name" placeholder="Type city name">
       </div>
-      <!-- <button class="get-weather-btn btn-two">Get weather1</button>
-      <input type="text" size="40" class="weather-city-name" placeholder="Type city name"> -->
     </div>
   </section>
+
+  <div class="container">
+    <div class="cs-loader hidden">
+      <div class="cs-loader-inner">
+        <label>●</label>
+        <label>●</label>
+        <label>●</label>
+        <label>●</label>
+        <label>●</label>
+        <label>●</label>
+      </div>
+    </div>
+  </div>
+  <script src="./js/all.js"></script>
   <script src="./js/script.js"></script>
 </body>
 </html>
