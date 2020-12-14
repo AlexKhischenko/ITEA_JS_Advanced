@@ -4,8 +4,13 @@
     2.1 For the first part (current location)
     2.2 For the second part (user-selected city)
 3. Get my coordinates
+    3.1 Get coordinates
+    3.2 Get local city name
 4. Make HTTP request
-5. Display recieved data
+5. Covert Kelvin to Celsius
+6. Display data
+    6.1 Display recieved parameters
+    6.2 Display city name
 */
 
 /* Getting all necessary DOM elements */
@@ -50,9 +55,9 @@ function getCityName() {
 function getWeatherData(latitude, longitude) {
   var api;
   if (latitude && longitude) {
-    api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=66d7c3fb840d30a551d86ce85c5f9832&units=metric`;
+    api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=66d7c3fb840d30a551d86ce85c5f9832`;
   } else {
-    api = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameValue}&appid=66d7c3fb840d30a551d86ce85c5f9832&units=metric`;
+    api = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameValue}&appid=66d7c3fb840d30a551d86ce85c5f9832`;
   }
   loader.classList.remove('hidden');
   fetch(api)
@@ -81,6 +86,12 @@ function displayUserLocation(recievedLocationData) {
   weatherCurrentLocation.innerText = `${recievedLocationData.city}`;
 }
 
+/* Kelvin to Celsius */
+function converKelvinToCelsius(kelvin) {
+  return kelvin - 273.15;
+}
+
+/* Display all weather parameters */
 function displayRecievedWeatherData(recievedWeatherData) {
   switch(recievedWeatherData.weather[0].main) {
     case 'Rain':
@@ -102,8 +113,8 @@ function displayRecievedWeatherData(recievedWeatherData) {
       weatherIcon.innerHTML = '<i class="fas fa-cloud-sun"></i>';
       break;
   }
-  currentTemperature.innerText = Math.ceil(recievedWeatherData.main.temp);
-  feelsLike.innerText = Math.ceil(recievedWeatherData.main[feels]);
+  currentTemperature.innerText = Math.ceil(converKelvinToCelsius(recievedWeatherData.main.temp));
+  feelsLike.innerText = Math.ceil(converKelvinToCelsius(recievedWeatherData.main[feels]));
   pressure.innerText = recievedWeatherData.main.pressure;
   humidity.innerText = recievedWeatherData.main.humidity;
   windSpeed.innerText = recievedWeatherData.wind.speed;
