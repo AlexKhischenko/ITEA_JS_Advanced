@@ -48,19 +48,18 @@ function getCityName() {
 
 /* Getting json response with weather data */
 function getWeatherData(latitude, longitude) {
-  loader.classList.remove('hidden');
   var api;
   if (latitude && longitude) {
     api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=66d7c3fb840d30a551d86ce85c5f9832&units=metric`;
   } else {
     api = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameValue}&appid=66d7c3fb840d30a551d86ce85c5f9832&units=metric`;
   }
+  loader.classList.remove('hidden');
   fetch(api)
     .then(function(response) {
       return response.json();
     })
     .then(function(recievedData) {
-      console.log(recievedData);
       displayRecievedWeatherData(recievedData);
       loader.classList.add('hidden');
     });
@@ -95,6 +94,9 @@ function displayRecievedWeatherData(recievedWeatherData) {
       break;
     case 'Clear':
       weatherIcon.innerHTML = '<i class="fas fa-sun"></i>';
+      break;
+    case 'Mist':
+      weatherIcon.innerHTML = '<i class="fas fa-smog"></i>';
       break;
     default:
       weatherIcon.innerHTML = '<i class="fas fa-cloud-sun"></i>';
