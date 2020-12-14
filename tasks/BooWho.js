@@ -32,7 +32,7 @@ console.log(booWho("false")); /* should return false */
 /* ---------- Declarative method ---------- */
 
 // function booWho(bool) {
-//   return typeof(bool) === 'boolean' ? true : false;
+//   return typeof(bool) === 'boolean';
 // }
 
 // console.log(booWho(null)); /* should return false */
