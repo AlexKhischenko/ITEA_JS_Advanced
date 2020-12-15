@@ -1,4 +1,3 @@
-
 /*
 Task
 Algorithm Scripting: Title Case a Sentence
