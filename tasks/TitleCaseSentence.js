@@ -12,7 +12,6 @@ function titleCase(str) {
   var tempStr = str.toLowerCase(),
       newStr = tempStr[0].toUpperCase(),
       i = 1;
-      // debugger;
   for (i; i < tempStr.length; i += 1) {
     if (tempStr[i] === ' ') {
       newStr = newStr + tempStr[i] + tempStr[i + 1].toUpperCase();
@@ -29,3 +28,14 @@ console.log(titleCase("sHoRt AnD sToUt")); /* should return Short And Stout */
 console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT")); /* should return Here Is My Handle Here Is My Spout */
 
 /* ---------- Declarative method ---------- */
+
+// function titleCase(str) {
+//   var newStr = str.toLowerCase().split(' ').map(function (item) {
+//     return item[0].toUpperCase() + item.slice(1);
+//   });
+//   return newStr.join(' ');
+// }
+
+// console.log(titleCase("I'm a little tea pot"));/* should return I'm A Little Tea Pot */
+// console.log(titleCase("sHoRt AnD sToUt")); /* should return Short And Stout */
+// console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT")); /* should return Here Is My Handle Here Is My Spout */
