@@ -2,7 +2,6 @@ html {
   position: relative;
   box-sizing: border-box;
   background: url('../img/bg.jpg') center no-repeat;
-  /* background: url('http://wes.io/hx9M/oh-la-la.jpg') center no-repeat; */
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -24,7 +23,7 @@ html {
 
 .wrapper {
   padding: 20px;
-  max-width: 350px;
+  max-width: 450px;
   background: rgba(255,255,255,0.95);
   box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
 }
@@ -73,9 +72,26 @@ h2 {
 }
 
 .add-items input {
-  padding:10px;
-  outline:0;
-  border:1px solid rgba(0,0,0,0.1);
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+  transition: box-shadow 0.5s;
+}
+
+.add-items input:hover {
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75) inset;
+}
+
+.add-items button {
+  padding: 10px;
+  width: 167px;
+  outline: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+  transition: box-shadow 0.5s;
+}
+
+.add-items button:hover {
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
 }
 
 .item-container {
