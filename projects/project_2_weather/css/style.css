@@ -148,6 +148,11 @@ ul {
   display: inline-block;
 }
 
+.btn-speech {
+  display: block;
+  margin: 10px auto 0 0;
+}
+
 .weather-city-name {
   background-color: #171717;
   color: #F55722;

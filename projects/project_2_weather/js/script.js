@@ -28,6 +28,7 @@ var weatherCurrentLocation = document.querySelector('.weather-current-city'),
     weatherDescription = document.querySelector('.weather-description'),
     weatherIcon = document.querySelector('.weather-icon'),
     loader = document.querySelector('.cs-loader'),
+    btnSpeech = document.querySelector('.btn-speech'),
     feels = 'feels_like',
     cityNameValue;
 
@@ -45,10 +46,17 @@ function getCurrentLocationCoordinates() {
 
 /* Getting local city name */
 function getCityName() {
-  cityNameValue = cityName.value;
-  weatherCurrentLocation.innerText = cityName.value;
+  cityNameValue = titleCase(cityName.value);
+  weatherCurrentLocation.innerText = cityNameValue;
   cityName.value = ''; /* Clear placeholder */
   getWeatherData();
+}
+
+/* Convert first letter of rhe city to upperCase */
+function titleCase(str) {
+  str = str.toLowerCase();
+  str = str[0].toUpperCase() + str.slice(1);
+  return str;
 }
 
 /* Getting json response with weather data */
@@ -126,3 +134,49 @@ function displayRecievedWeatherData(recievedWeatherData) {
 /* Add event listener for the first part (current location) */
 weatherBtn.addEventListener('click', getCurrentLocationCoordinates);
 cityNameBtn.addEventListener('click', getCityName);
+
+
+
+
+/* SpeechRecognition */
+
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; /* Если не браузер не поддерживает */
+
+var recognition = new SpeechRecognition();
+var cityBySpeech;
+
+recognition.lang = 'ru-RU'; /* Указывается язык распознавания */
+// recognition.interimResults = true; /* Показывает не финальный, а промежуточный результат сформированных слов */
+
+recognition.addEventListener('result', function (event) {
+    cityBySpeech = Array
+      .from(event.results)
+      .map(function (result) {
+          return result[0];
+      })
+      .map(function (result) {
+          return result.transcript;
+      })
+      .join('');
+
+    if(event.results[0].isFinal) { /* Срабатывает, когда в речи делается пауза */
+      switch (cityBySpeech) {
+        case 'go':
+        case 'гоу':
+        case 'найти':
+        case 'поиск':
+          getCityName();
+          break;
+        default:
+          cityName.value = cityBySpeech;
+          break;
+      }
+    }
+});
+
+function startSpeaking() {
+  recognition.addEventListener('end', recognition.start); /* Постоянно поддерживает включеный микрофон */
+  recognition.start(); /* Включает микрофон. При остутствиие речи микрофон выключается */
+}
+
+btnSpeech.addEventListener('click', startSpeaking); /* Включает микрофон по клику на кнопку "Speech" */
