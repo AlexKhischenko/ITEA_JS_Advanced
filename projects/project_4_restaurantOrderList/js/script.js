@@ -63,6 +63,7 @@ function chooseItem(event) {
     if (event.target && event.target.classList.contains('item-edit')) {
         itemEdit.forEach(function (edit, i) {
             if (event.target === edit) {
+                checkboxes[i].disabled = true;
                 itemEdit[i].classList.add('hidden');
                 itemSave[i].classList.remove('hidden');
                 itemLabel[i].contentEditable = 'true';
@@ -74,6 +75,7 @@ function chooseItem(event) {
     if (event.target && event.target.classList.contains('item-save')) {
         itemSave.forEach(function (save, i) {
             if (event.target === save) {
+                checkboxes[i].disabled = false;
                 items[i].text = itemLabel[i].textContent;
                 itemLabel[i].contentEditable = 'false';
                 itemEdit[i].classList.remove('hidden');
@@ -88,20 +90,20 @@ function chooseItem(event) {
         itemDelete.forEach(function (remove, i) {
             if (event.target === remove) {
 
-                modal.classList.remove('hidden');
-                modalConfirm.addEventListener('click', function() {
-                    items.splice(i, 1);
-                    localStorage.setItem('items', JSON.stringify(items));
-                    populateList(items, itemsList);
-                    modal.classList.add('hidden');
-                });
-                modalCancel.addEventListener('click', function() {
-                    modal.classList.add('hidden');
-                });
+                // modal.classList.remove('hidden');
+                // modalConfirm.addEventListener('click', function() {
+                //     items.splice(i, 1);
+                //     localStorage.setItem('items', JSON.stringify(items));
+                //     populateList(items, itemsList);
+                //     modal.classList.add('hidden');
+                // });
+                // modalCancel.addEventListener('click', function() {
+                //     modal.classList.add('hidden');
+                // });
 
-                // items.splice(i, 1);
-                // localStorage.setItem('items', JSON.stringify(items));
-                // populateList(items, itemsList);
+                items.splice(i, 1);
+                localStorage.setItem('items', JSON.stringify(items));
+                populateList(items, itemsList);
             }
         });
     }
@@ -116,4 +118,4 @@ populateList(items, itemsList);
 
 addItems.addEventListener('submit', addItem);
 itemsList.addEventListener('click', chooseItem);
-modal.addEventListener('click', deleteDish);
+// modal.addEventListener('click', deleteDish);
