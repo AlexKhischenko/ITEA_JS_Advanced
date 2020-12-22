@@ -1,0 +1,190 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;    
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1E1E1E;
+  font-family: 'Comic Neue', cursive;
+  font-weight: 400;
+  position: relative;
+  height: 100vh;
+  color: #333;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  width: 1000px;
+  background-color: #fff;
+}
+
+.logo {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: -143px;
+  top: 0;
+  z-index: 10;
+}
+
+.logo__image {
+  width: 100%;
+}
+
+.player-0-panel,
+.player-1-panel {
+  width: 50%;
+  padding: 100px;
+}
+
+.final-score {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 520px;
+  color: #555;
+  font-size: 18px;
+  font-family: 'Comic Neue', cursive;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+  width: 160px;
+  text-transform: uppercase;
+}
+
+.final-score:focus {
+  outline: none;
+}
+
+#dice-1 {
+  top: 120px;
+  box-shadow: 0px 0px 6px 1px rgb(88, 88, 88);
+}
+#dice-2 {
+  top: 250px;
+  box-shadow: 0px 0px 6px 1px rgb(88, 88, 88);
+}
+
+/**********************************************
+*** PLAYERS
+**********************************************/
+
+.player-name {
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.player-score {
+  text-align: center;
+  font-size: 80px;
+  font-weight: 400;
+  color: #EB4D4D;
+  margin-bottom: 100px;
+}
+
+.active { background-color: #f7f7f7; }
+.active .player-name { font-weight: 700; }
+
+.active .player-name::after {
+  content: "\2022";
+  font-size: 50px;
+  position: absolute;
+  color: #EB4D4D;
+  top: -10px;
+  right: 25px;
+    
+}
+
+.player-current-box {
+  background-color: #EB4D4D;
+  color: #fff;
+  width: 40%;
+  margin: 0 auto;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0px 0px 6px 1px rgb(88, 88, 88);
+}
+
+.player-current-label {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #222;
+}
+
+.player-current-score {
+  font-size: 30px;
+}
+
+button {
+  position: absolute;
+  width: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #555;
+  background: none;
+  border: none;
+  font-family: 'Comic Neue', cursive;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+button:hover { font-weight: 700; }
+button:hover .btn-icon { margin-right: 25px; }
+
+button:focus {
+  outline: none;
+}
+
+.btn-icon {
+  color: #EB4D4D;
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 18px;
+  line-height: 1;
+  vertical-align: center;
+  transition: margin 0.3s;
+}
+
+.btn-new { top: 45px;}
+.btn-roll { top: 403px;}
+.btn-hold { top: 467px;}
+
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 178px;
+  transform: translateX(-50%);
+  height: 100px;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+.winner { background-color: #f7f7f7; }
+.winner .player-name { font-weight: 700; color: #EB4D4D; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
