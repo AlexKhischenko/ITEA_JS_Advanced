@@ -65,11 +65,11 @@
 //   return tempArr.join('');
 // }
 
-function checkVowels(letter) {
-  return /[aeiouAUIOE]/.test(letter);
-}
+// function checkVowels(letter) {
+//   return /[aeiouAUIOE]/.test(letter);
+// }
 
-console.log(reverseVowels('hello'));
+// console.log(reverseVowels('hello'));
 
 function checkVowels(letter) {
   return /[aeiouAUIOE]/.test(letter);
@@ -124,29 +124,29 @@ console.log(reverseVowels('umbrella'));
 
 
 
-// function checkVowels(letter) {
-//   return /[aeiouAUIOE]/.test(letter);
-// }
+function checkVowels(letter) {
+  return /[aeiouAUIOE]/.test(letter);
+}
 
-// function reverseString(s) {
-//   var vowels = '', i, j, size = s.length, result = '', count = 0;
+function reverseString(s) {
+  var vowels = '', i, j, size = s.length, result = '', count = 0;
 
-//   for(i = size - 1; i >= 0; i -= 1) {
-//       if(checkVowels(s[i])) {
-//          vowels += s[i];
-//       }
-//   }
+  for(i = size - 1; i >= 0; i -= 1) {
+      if(checkVowels(s[i])) {
+         vowels += s[i];
+      }
+  }
 
-//   for(j = 0; j < size; j += 1) {
-//       if(checkVowels(s[j])) {
-//           result += vowels[count];
-//           count += 1;
-//       } else {
-//           result += s[j];
-//       }
-//   }
+  for(j = 0; j < size; j += 1) {
+      if(checkVowels(s[j])) {
+          result += vowels[count];
+          count += 1;
+      } else {
+          result += s[j];
+      }
+  }
 
-//   return result;
-// }
+  return result;
+}
 
-// console.log(reverseString('umbrella'));
+console.log(reverseString('umbrella'));
