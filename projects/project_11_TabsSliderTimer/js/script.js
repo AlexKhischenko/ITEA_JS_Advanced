@@ -95,3 +95,44 @@ function setClock(selector, finalTime) {
 }
 
 setClock('.timer', deadLine);
+
+
+
+/* ********** Modal ********** */
+
+var modalOpenBtn = document.querySelectorAll('[data-modal]'),
+    modalCloseBtn = document.querySelector('[data-close]'),
+    modal = document.querySelector('.modal');
+
+/* Function - Close modal */
+function closeModal() {
+  modal.classList.remove('show');
+  modal.classList.add('hide');
+  document.body.style.overflow = '';
+}
+
+/* Open modal */
+modalOpenBtn.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    modal.classList.remove('hide');
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+/* Close modal by "Escape" key */
+document.addEventListener('keydown', function(event) {
+  if (event.code === 'Escape' && modal.classList.contains('show')) {
+    closeModal();
+  }
+});
+
+/* Close modal by click outside */
+document.addEventListener('click', function(event) {
+  if(event.target === modal) {
+    closeModal();
+  }
+});
+
+/* Close modal */
+modalCloseBtn.addEventListener('click', closeModal);
