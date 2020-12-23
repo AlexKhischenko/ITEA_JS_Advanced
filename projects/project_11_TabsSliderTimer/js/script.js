@@ -104,6 +104,14 @@ var modalOpenBtn = document.querySelectorAll('[data-modal]'),
     modalCloseBtn = document.querySelector('[data-close]'),
     modal = document.querySelector('.modal');
 
+/* Function - Open modal */
+function openModal() {
+  modal.classList.remove('hide');
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  clearInterval(modalTimerId);
+}
+
 /* Function - Close modal */
 function closeModal() {
   modal.classList.remove('show');
@@ -113,11 +121,7 @@ function closeModal() {
 
 /* Open modal */
 modalOpenBtn.forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    modal.classList.remove('hide');
-    modal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  });
+  btn.addEventListener('click', openModal);
 });
 
 /* Close modal by "Escape" key */
@@ -136,3 +140,16 @@ document.addEventListener('click', function(event) {
 
 /* Close modal */
 modalCloseBtn.addEventListener('click', closeModal);
+
+/* Set interval to open modal in 5 seconds */
+var modalTimerId = setInterval(openModal, 5000);
+
+/* Show modal by scroll till the end */
+function showModalByScroll() {
+  if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+    openModal();
+    document.removeEventListener('scroll', showModalByScroll);
+  }
+}
+
+document.addEventListener('scroll', showModalByScroll);
