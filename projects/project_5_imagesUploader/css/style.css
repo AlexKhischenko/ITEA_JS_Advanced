@@ -189,9 +189,10 @@ figcaption p {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 700px;
+  max-height: 500px;
   background-color: #000;
   background-position: center center;
-
+  overflow: hidden;
   border: 3px solid black;
   box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.75);
 }
@@ -200,14 +201,18 @@ figcaption p {
   position: absolute;
   width: 30px;
   background-color: none;
-  top: -40px;
-  right: -40px;
+  top: 20px;
+  right: 20px;
+  transition: all 0.5s;
+}
+
+.modal-image-wrapper .modal-image-close:hover {
+  transform: scale(1.2);
   cursor: pointer;
 }
 
-.modal-image-wrapper img {
+.modal-image-wrapper .modal-image-content {
   width: 100%;
-  object-fit: cover;
 }
 
 .hidden {

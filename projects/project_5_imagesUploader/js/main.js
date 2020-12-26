@@ -140,7 +140,7 @@ function chooseImage(event) {
         showModal(modalImage);
         modalImageWrapper.innerHTML = `
         <img src="./img/close.png" alt="close" class="modal-image-close">
-        <img src=${images[i].url} alt=${images[i].name}></img>`;
+        <img src=${images[i].url} alt=${images[i].name} class="modal-image-content">`;
       }
     });
   }
