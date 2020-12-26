@@ -59,7 +59,7 @@ function populateList(plates, platesList) {
 /* Setting functionality for 'Edit', 'Delete' and 'Save' buttons*/
 function chooseItem(event) {
     var checkboxes = this.querySelectorAll('input'),
-        itemEdit = this.querySelectorAll('.item-edit'),
+        itemEdit = this.querySelectorAll('.item-edit'),       
         itemSave = this.querySelectorAll('.item-save'),
         itemDelete = this.querySelectorAll('.item-delete'),
         itemLabel = this.querySelectorAll('.item-label');
