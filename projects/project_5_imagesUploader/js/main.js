@@ -8,7 +8,7 @@
 var uploader = document.querySelector('#uploader'),
     imagesList = document.querySelector('.images'),
     images = JSON.parse(localStorage.getItem('images')) || [],
-    modalDelete = document.querySelector('.modal-delete'),
+    modal = document.querySelector('.modal'),
     modalDeleteWrapper = document.querySelector('.modal-delete-wrapper'),
     modalDeleteConfirm = document.querySelector('.modal-delete-confirm'),
     modalDeleteCancel = document.querySelector('.modal-delete-cancel'),
@@ -95,7 +95,8 @@ function chooseImage(event) {
         coordinateX = Math.ceil(removeButton[i].getBoundingClientRect().x) - 35;
         coordinateY = Math.ceil(removeButton[i].getBoundingClientRect().y) + window.pageYOffset - 50;
         modalDeleteWrapper.style.transform = `translate(${coordinateX}px, ${coordinateY}px)`;
-        modalDelete.classList.remove('hidden');
+        modalDeleteWrapper.classList.remove('hidden');
+        modal.classList.remove('hidden');
       }
     });
   }
@@ -133,14 +134,16 @@ function chooseImage(event) {
 
 /* Setting functionality for modal delete */
 function removeImage(event) {
-  if (event.target && event.target.classList.contains('modal-delete-cancel') || event.target.classList.contains('modal-delete')) {
-    modalDelete.classList.add('hidden');
+  if (event.target && event.target.classList.contains('modal-delete-cancel') || event.target.classList.contains('modal')) {
+    modalDeleteWrapper.classList.add('hidden');
+    modal.classList.add('hidden');
   }
   if (event.target && event.target.classList.contains('modal-delete-confirm')) {
     images.splice(indexOfRemovingImage, 1);
     localStorage.setItem('images', JSON.stringify(images));
     displayImages(images, imagesList);
-    modalDelete.classList.add('hidden');
+    modalDeleteWrapper.classList.add('hidden');
+    modal.classList.add('hidden');
   }
 }
 
@@ -150,5 +153,5 @@ displayImages(images, imagesList);
 /* Add event listeners */
 uploader.addEventListener('change', uploadImages);
 imagesList.addEventListener('click', chooseImage);
-modalDelete.addEventListener('click', removeImage);
+modal.addEventListener('click', removeImage);
 
