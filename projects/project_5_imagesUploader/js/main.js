@@ -20,7 +20,7 @@ var uploader = document.querySelector('#uploader'),
     indexOfRemovingImage;
 
 /* Discplay images and their data from the localStorage */
-function displayImages(images, imagesList) {
+function displayImages(images, imagesList, max, value) {
   imagesList.innerHTML = images.map(function (image, index) {
     return `
       <li>
@@ -32,6 +32,11 @@ function displayImages(images, imagesList) {
             <img src=${image.url} alt="Image ${index + 1}">
           </div>
           <figcaption class="image-description">
+
+            <div class="progress-wrapper">
+              <progress class="progress-line" max=${max} value=${value}></progress>
+            </div>
+
             <p class="image-display-name" contenteditable="false">${removeFileExtansion(image.name)}</p>
             <p class="image-display-size">${(image.size / 1000).toFixed(1)} kB</p>
           </figcaption>
@@ -49,20 +54,31 @@ function displayImages(images, imagesList) {
 /* Images uploader */
 function uploadImages() {
   var filesList = Array.from(this.files),
+      max,
+      value,
       image;
   
   if(FileReader) {
     filesList.forEach(function (file) {
       var fileReader = new FileReader();
+
+      fileReader.onprogress = function(event) {
+        if (event.lengthComputable) {
+          max = event.total;
+          value = event.loaded;
+        }
+      };
+
       fileReader.addEventListener('load', function(event) {
         image = {};
         image.name = file.name;
         image.size = file.size;
         image.url = event.target.result;
         images.push(image);
-        displayImages(images, imagesList);
+        displayImages(images, imagesList, max, value);
         writeToLocalStorage();
       });
+
       fileReader.readAsDataURL(file);
     });
 
