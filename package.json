@@ -1,0 +1,19 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "JavaScript. Advanced level. Practice",
+  "main": "./js/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexKhischenko/JS_Advanced.git"
+  },
+  "author": "Aleksandr.Khischenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexKhischenko/JS_Advanced/issues"
+  },
+  "homepage": "https://github.com/AlexKhischenko/JS_Advanced#readme"
+}
