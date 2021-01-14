@@ -18,15 +18,10 @@ function spinalCase(str) {
   for (i; i < size; i += 1) {
     if (str[i] === str[i].toUpperCase() && str[i] !== ' ' && str[i] !== '_' && str[i] !== '-') {
       tempStr += '-' + str[i].toLowerCase();
+    } else if (str[i] === '_') {
+      tempStr += '';
     } else {
-      switch(str[i]) {
-        case '_':
-          tempStr += '';
-          break;
-        default:
-          tempStr += str[i];
-          break;
-      }
+      tempStr += str[i];
     }
   }
 
