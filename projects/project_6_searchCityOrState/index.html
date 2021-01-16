@@ -9,10 +9,21 @@
 <body>
 
   <form class="search-form">
-      <input type="text" class="search" placeholder="City or State">
+      <div class="input-group">
+        <input type="text" class="search" placeholder="City or State">
+        <div class="close">
+          <img src="img/clear.png" alt="clear">
+        </div>
+      </div>
       <ul class="suggestions"></ul>
   </form>
 
+  <script src="js/showDefaultStructure.js"></script>
+  <script src="js/showCloseBtn.js"></script>
+  <script src="js/hideCloseBtn.js"></script>
+  <script src="js/clearSearchInput.js"></script>
+  <script src="js/findMatches.js"></script>
+  <script src="js/displayMatches.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
