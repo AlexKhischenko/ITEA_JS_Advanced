@@ -20,15 +20,14 @@ let getDataFromNYTimes = function() {
     showDefaultStructure();
   } else {
     showCloseBtn();
-    let api = createAPI(searchInput.value, pageIndex),
-    articlesData = [];
+    let api = createAPI(searchInput.value, pageIndex);
 
     fetch(api).then(function(response) {
       return response.json();
     }).then(function(recievedData) {
 
       console.log(recievedData);
-      articlesData = recievedData.response.docs.map(function(article) {
+      let articlesData = recievedData.response.docs.map(function(article) {
         return {
           header: article.headline.main,
           url: article.web_url,
