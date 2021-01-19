@@ -11,22 +11,18 @@ Pig Latin is a way of altering English Words. The rules are as follows:
 function translatePigLatin(str) {
   let i = 0,
       tempStr = '',
+      pattern = 'ay',
       strSize = str.length;
 
-  if (checkVowels(str[i])) {
-    return str + 'way';
-  }
-  tempStr += str[i];
-
-  for (i = 1; i < strSize; i += 1) {
+  for (i; i < strSize; i += 1) {
+    if (i === 0 && checkVowels(str[i])) return str + 'way';
     if (!checkVowels(str[i])) {
       tempStr += str[i];
-    } else {
-      return str.slice(tempStr.length) + tempStr + 'ay';
+      continue;
     }
+    return str.slice(tempStr.length) + tempStr + pattern;
   }
-
-  return str + 'ay';
+  return str + pattern;
 }
 
 function checkVowels(letter) {
