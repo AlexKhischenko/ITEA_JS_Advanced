@@ -29,7 +29,6 @@ function checkVowels(letter) {
   return /[aeiouAUIOE]/.test(letter);
 }
 
-
 console.log(translatePigLatin("california")); /* should return "aliforniacay" */
 console.log(translatePigLatin("paragraphs")); /* should return "aragraphspay" */
 console.log(translatePigLatin("glove")); /* should return "oveglay" */
