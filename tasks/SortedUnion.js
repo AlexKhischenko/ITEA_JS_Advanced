@@ -8,4 +8,28 @@ The unique numbers should be sorted by their original order, but the final array
 
 /* ---------- Imperative method ---------- */
 
+function uniteUnique() {
+  const arrLength = arguments.length,
+        newArr = [];
+  let i,
+      j;
+  for (i = 0; i < arrLength; i += 1) {
+    for (j = 0; j < arguments[i].length; j += 1) {
+      if (!newArr.includes(arguments[i][j])) {
+        newArr.push(arguments[i][j]);
+      }
+    }
+  }
+  return newArr;
+}
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])); /* should return [1, 3, 2, 5, 4] */
+console.log(uniteUnique([1, 2, 3], [5, 2, 1])); /* should return [1, 2, 3, 5] */
+console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])); /* should return [1, 2, 3, 5, 4, 6, 7, 8] */
+
+
 /* ---------- Declarative method ---------- */
+
+// function uniteUnique() {
+//   return Array.from(new Set([].concat(...arguments)));
+// }
