@@ -7,6 +7,19 @@ In other words, you are given an array collection of objects. The predicate pre 
 
 /* ---------- Imperative method ---------- */
 
+// function truthCheck(collection, pre) {
+//     const arrLength = collection.length;
+//     let i;
+
+//     for (i = 0; i < arrLength; i += 1) {
+//         if (collection[i][pre]) {
+//             continue;
+//         }
+//         return false;
+//     }
+//     return true;
+// }
+
 console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex")); /* should return true */
 console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex")); /* should return false */
 console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male", "age": 0}, {"user": "Dipsy", "sex": "male", "age": 3}, {"user": "Laa-Laa", "sex": "female", "age": 5}, {"user": "Po", "sex": "female", "age": 4}], "age")); /* should return false */
@@ -19,3 +32,9 @@ console.log(truthCheck([{"single": "double"}, {"single": NaN}], "single")); /* s
 
 
 /* ---------- Declarative method ---------- */
+
+function truthCheck(collection, pre) {
+    return collection.every((array) => {
+        return array[pre];
+    })
+}
